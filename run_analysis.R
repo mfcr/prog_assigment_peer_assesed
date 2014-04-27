@@ -16,12 +16,12 @@ feat <- read.table("UCI HAR Dataset/features.txt")
 mean_std_feat <- grep("-mean\\(\\)|-std\\(\\)", feat[, 2]) #colmn # of the featrures with mean or std in their names.
 X <- X[, mean_std_feat]
 names(X) <- feat[mean_std_feat, 2]
-names(X) <- tolower(gsub("\\(|\\)", "", names(X)))
+names(X) <- gsub("\\(|\\)", "", names(X))
 
 #------------------------------------------------------------------------------------
 # 3. Uses descriptive activity names to name the activities in the data set
 activities <- read.table("UCI HAR Dataset/activity_labels.txt")
-activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
+activities[, 2] = gsub("_", "", as.character(activities[, 2]))
 Y[,1] = activities[Y[,1], 2]
 names(Y) <- "activity"
 
@@ -29,7 +29,6 @@ names(Y) <- "activity"
 # 4. Appropriately labels the data set with descriptive activity names.
 names(S) <- "subject"
 cleaned <- cbind(S, Y, X) #merge subjects, mean and std data and activities tables.
-# write.table(cleaned, "cleaned_data.txt")---> Optional saving of the data before averaging.
 
 #------------------------------------------------------------------------------------
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
