@@ -18,6 +18,6 @@ Steps taken when running run_analysis.R:
 
     Creates a second, independent tidy data set with the average of each variable for each activity and each subject.       
       First obtain subjects and activities length and stores them in variables: num_activities and num_subjects.
-      In the for blocks runs over all activities and all subjects of the data with the former explained activities and subjects (data stored in variable cleaned) creating a new data set with their mean and std taken from cleaned. The new data frame is stored at variable= result.
+      In the for blocks runs over all activities and all subjects of the data with the former explained activities and subjects (data stored in variable cleaned) creating a new data set with their mean. The new data frame is stored at variable= mean_cleaned_data.
       finally, the program stores an output txt file called: tidy_data_set.txt.
 
