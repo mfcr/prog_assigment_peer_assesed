@@ -36,17 +36,17 @@ Subjects = unique(S)[,1]
 num_Subjects = length(Subjects)
 num_Activities = length(activities[,1])
 num_Cols = dim(cleaned)[2]
-result = cleaned[1:(num_Subjects*num_Activities), ]
+mean_cleaned_data = cleaned[1:(num_Subjects*num_Activities), ]
 
 row_count = 1
 for (su in 1:num_Subjects) {
   for (nu in 1:num_Activities) {
-    result[row, 1] = Subjects[su]
-    result[row, 2] = activities[a, 2]
+    mean_cleaned_data[row, 1] = Subjects[su]
+    mean_cleaned_data[row, 2] = activities[a, 2]
     tmp <- cleaned[cleaned$subject==su & cleaned$activity==activities[nu, 2], ]
-    result[row_count, 3:num_Cols] <- colMeans(tmp[, 3:num_Cols])
+    mean_cleaned_data[row_count, 3:num_Cols] <- colMeans(tmp[, 3:num_Cols])
     row_count = row_count+1
   }
 }
-write.table(result, "tidy_data_set.txt") #result for the assignment.
+write.table(mean_cleaned_data, "tidy_data_set.txt") #result for the assignment.
 
