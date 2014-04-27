@@ -12,4 +12,4 @@ when downloading data, it creates a folder named: UCI HAR Dataset
 
 copy the run_analysis.R file to the folder that contains the data folder and run it to obtain an output file named: "tidy_data_set.txt"
 
-In the file: CodeBook.md you can find explanations about code and features of the data.
+In the file: CodeBook.md you can find explanations about code and features of the data. Please refr to the file for more information.
